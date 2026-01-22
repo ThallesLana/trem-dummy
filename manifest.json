@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "trem-dummy",
+  "name": "Trem Dummy",
   "version": "1.0",
   "description": "Gera dados fake e preenche formulários automaticamente na aba ativa.",
   "permissions": ["activeTab", "scripting"],

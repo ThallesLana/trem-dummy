@@ -1,8 +1,13 @@
-# TremDummy
+# Trem Dummy
 
 Extensão para Chrome (Manifest V3) que gera dados fake e preenche automaticamente formulários na aba ativa.
 
 A ideia é acelerar testes de UI, validações de formulário e fluxos de cadastro/checkout sem precisar digitar dados manualmente.
+
+## Requisitos
+
+- Google Chrome (ou Chromium)
+- Modo desenvolvedor habilitado em `chrome://extensions/`
 
 ## Principais recursos
 
@@ -27,7 +32,7 @@ A ideia é acelerar testes de UI, validações de formulário e fluxos de cadast
 3. Clique em **Carregar sem compactação**.
 4. Selecione a pasta deste projeto:
 
-   `extension-chrome-web-monkey/`
+   `trem-dummy/` (raiz do repositório)
 
 5. Fixe a extensão na barra do navegador (opcional) para acesso rápido.
 
@@ -83,6 +88,10 @@ O preenchimento é heurístico, então depende de como o site nomeia os campos. 
   - Gerada localmente para idade entre 18 e 50 anos
 - Senha:
   - Valor fixo no código: `Dev@Pass2026!`
+- CVV:
+  - Valor fixo: `123`
+- Validade:
+  - Valor fixo: `12/29`
 
 ## Permissões (manifest.json)
 
@@ -111,6 +120,13 @@ O preenchimento é heurístico, então depende de como o site nomeia os campos. 
   - Injeção da função `fillForm` via `chrome.scripting.executeScript`
 - `manifest.json`:
   - Configuração da extensão (Manifest V3)
+
+## Estrutura do projeto
+
+- `manifest.json`
+- `popup.html`
+- `popup.js`
+- `icons/`
 
 ## Limitações conhecidas
 
@@ -143,3 +159,8 @@ Sugestão de fluxo:
 ## Aviso
 
 Esta extensão é voltada para **testes e desenvolvimento**. Evite usar em produção ou com dados reais.
+
+## Privacidade
+
+- A extensão faz uma requisição para `https://randomuser.me/api/?nat=br` para obter dados aleatórios de usuário.
+- Não há persistência local de dados (não grava em storage), e o preenchimento acontece apenas na aba ativa quando você clica no botão.
